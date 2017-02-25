@@ -1,3 +1,10 @@
+//-- INTERNAL DOCUMENTATION -->
+//-- File Name: books.js -->
+//-- Student Name: Ali Saim -->
+//-- Student ID: 300759480 -->
+//-- Web App Name: My Favourite Books -->
+//-- Date: Feb 25th 2017 -->
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -25,11 +32,6 @@ router.get('/', (req, res, next) => {
 
 //  GET the Book Details page in order to add a new Book
 router.get('/add', (req, res, next) => {
-
-    /*****************
-     * ADD CODE HERE *
-     *****************/
-
     res.render('books/details', {
     title: "Add a new Book",
     games: ''
@@ -39,15 +41,13 @@ router.get('/add', (req, res, next) => {
 
 // POST process the Book Details page and create a new Book - CREATE
 router.post('/add', (req, res, next) => {
-
-    /*****************
-     * ADD CODE HERE *
-     *****************/
-
     let newBook = book({
-      "name": req.body.name,
-      "cost": req.body.cost,
-      "rating": req.body.rating
+      "title": req.body.Name,
+      "description": reg.body.Description,
+      "price": req.body.Price,
+      "author": reg.body.Author,
+      "rating": req.body.Rating,
+      "genre": reg.body.Genre
     });
 
     book.create(newBook, (err, book) => {
@@ -58,16 +58,11 @@ router.post('/add', (req, res, next) => {
         res.redirect('/books');
       }
     });
-
-
 });
 
 // GET the Book Details page in order to edit an existing Book
 router.get('/:id', (req, res, next) => {
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
 try {
       // get a reference to the id from the url
       let id = mongoose.Types.ObjectId.createFromHexString(req.params.id);
@@ -95,18 +90,16 @@ try {
 
 // POST - process the information passed from the details form and update the document
 router.post('/:id', (req, res, next) => {
-
-    /*****************
-     * ADD CODE HERE *
-     *****************/
-
     let id = req.params.id;
 
      let updatedBook = book({
        "_id": id,
-      "name": req.body.name,
-      "cost": req.body.cost,
-      "rating": req.body.rating
+      "title": req.body.Name,
+      "description": reg.body.Description,
+      "price": req.body.Price,
+      "author": reg.body.Author,
+      "rating": req.body.Rating,
+      "genre": reg.body.Genre
     });
 
     book.update({_id: id}, updatedBook, (err) => {
@@ -123,12 +116,6 @@ router.post('/:id', (req, res, next) => {
 
 // GET - process the delete by user id
 router.get('/delete/:id', (req, res, next) => {
-
-    /*****************
-     * ADD CODE HERE *
-     *****************/
-
-
      let id = req.params.id;
 
     book.remove({_id: id}, (err) => {

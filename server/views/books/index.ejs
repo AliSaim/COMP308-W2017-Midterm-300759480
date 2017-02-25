@@ -8,7 +8,7 @@
           <!-- ------------------------ -->
           <!-- FIX THE ADD BUTTON BELOW -->
           <!-- ------------------------ -->
-          <a href="/views/books/details" class="btn btn-primary"><i class="fa fa-plus"></i> Add a book</a>
+          <a href="/books/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add a book</a>
           <br>
           <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover">
@@ -32,9 +32,8 @@
                   <td class="text-center"><%= books[count].Genre %></td>
 
                   <td class="text-center">
-                    <!-- ------------------------ -->
-                    <!-- ADD the EDIT BUTTON HERE -->
-                    <!-- ------------------------ -->
+                    <!-- This is the Edith button for every record in the table -->
+      
 
                     <!-- Added the Edith buttons for all books in the list -->
                     <a href="/books/<%= books[count]._id %>" class="btn btn-primary">
@@ -43,10 +42,8 @@
                   </td>
 
                   <td class="text-center">
-                    <!-- ------------------------ -->
-                    <!-- ADD the DELETE BUTTON HERE -->
-                    <!-- ------------------------ -->
-
+                    <!-- This is the delete button for every record in the table -->
+                
                     <a href="/books/delete/<%= books[count]._id %>" class="btn btn-danger">
                     <i class="fa fa-trash-o"></i> Delete</a>
 
